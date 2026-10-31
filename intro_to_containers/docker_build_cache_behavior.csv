@@ -1,0 +1,5 @@
+instruction,cache_behavior,reason
+FROM alpine:latest,CACHED,Base image unchanged
+COPY message.txt /message.txt,CACHED,Source file unchanged
+RUN apk add --no-cache curl wget,REBUILT,Package installation instruction changed
+CMD cat /message.txt,REPROCESSED,Instruction follows modified RUN step
